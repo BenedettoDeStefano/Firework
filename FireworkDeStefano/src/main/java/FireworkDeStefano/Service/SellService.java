@@ -13,6 +13,7 @@ import FireworkDeStefano.Repository.SellRepository;
 
 @Service
 public class SellService {
+
 	private final SellRepository sellRepository;
 
 	@Autowired

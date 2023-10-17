@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import FireworkDeStefano.Entities.Categories;
+import FireworkDeStefano.Payload.CategoriesPayload;
 import FireworkDeStefano.Repository.CategoriesRepository;
 
 @Service
@@ -27,15 +28,17 @@ public class CategoriesService {
 		return categoriesRepository.findById(id);
 	}
 
-	public void saveCategory(Categories category) {
+	public void saveCategory(CategoriesPayload categoryPayload) {
+		Categories category = new Categories();
+		category.setNameCategory(categoryPayload.getNameCategory());
 		categoriesRepository.save(category);
 	}
 
-	public void updateCategory(UUID id, Categories category) {
+	public void updateCategory(UUID id, CategoriesPayload categoryPayload) {
 		Optional<Categories> existingCategoryOptional = categoriesRepository.findById(id);
 		if (existingCategoryOptional.isPresent()) {
 			Categories existingCategory = existingCategoryOptional.get();
-			existingCategory.setNameCategory(category.getNameCategory());
+			existingCategory.setNameCategory(categoryPayload.getNameCategory());
 			categoriesRepository.save(existingCategory);
 		} else {
 			System.out.println("Categoria non trovata.");

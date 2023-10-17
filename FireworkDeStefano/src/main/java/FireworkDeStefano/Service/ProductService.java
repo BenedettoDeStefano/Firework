@@ -51,5 +51,4 @@ public class ProductService {
 	public void deleteProduct(UUID id) {
 		productRepository.deleteById(id);
 	}
-
 }
