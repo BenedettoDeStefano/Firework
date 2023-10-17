@@ -72,4 +72,10 @@ public class ProductController {
 		return ResponseEntity.ok(totalWeight);
 	}
 
+	@GetMapping("/searchbarcode")
+	public ResponseEntity<List<Product>> searchProductsByBarcode(@RequestParam String barcode) {
+		List<Product> products = productService.searchProductsByBarcode(barcode);
+		return ResponseEntity.ok(products);
+	}
+
 }

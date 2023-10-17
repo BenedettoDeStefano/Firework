@@ -15,4 +15,5 @@ public class ProductPayload {
 	private double totalWeight;
 	private double price;
 	private Date dateAdding;
+	private int stock;
 }

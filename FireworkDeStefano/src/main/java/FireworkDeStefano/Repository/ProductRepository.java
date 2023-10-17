@@ -9,4 +9,6 @@ import FireworkDeStefano.Entities.Product;
 
 public interface ProductRepository extends JpaRepository<Product, UUID> {
 	List<Product> findByNameProductContainingIgnoreCase(String nameProduct);
+
+	List<Product> findByBarcode(String barcode);
 }

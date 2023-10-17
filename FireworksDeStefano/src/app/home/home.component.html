@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">Vendita</h2>
+  <div class="mb-3">
+    <label for="barcode" class="form-label">Inserisci il Codice a Barre:</label>
+    <input type="text" class="form-control" id="barcode" [(ngModel)]="barcode" placeholder="Inserisci il codice a barre">
+  </div>
+  <button class="btn btn-primary" (click)="cercaProdotto()">Vendi</button>
+
+  <div *ngIf="error" class="alert alert-danger mt-4">{{ error }}</div>
+
+  <div class="card mt-4" *ngIf="product" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.nameProduct }}</h5>
+      <p class="card-text">Prezzo: {{ product.price }} €</p>
+      <p class="card-text">Codice a Barre: {{ product.barcode }}</p>
+      <p class="card-text">Magazzino: {{ product.stock }}</p>
+      <div class="mb-3">
+        <label for="selectedQuantity" class="form-label">Quantità da acquistare:</label>
+        <input type="number" class="form-control" id="selectedQuantity" [(ngModel)]="selectedQuantity" placeholder="Inserisci la quantità">
+      </div>
+    </div>
+  </div>
+</div>
+
+

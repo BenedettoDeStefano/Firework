@@ -42,6 +42,7 @@ public class ProductService {
 			existingProduct.setTotalWeight(product.getTotalWeight());
 			existingProduct.setPrice(product.getPrice());
 			existingProduct.setDateAdding(product.getDateAdding());
+			existingProduct.setStock(product.getStock());
 			productRepository.save(existingProduct);
 		} else {
 			System.out.println("Prodotto non trovato.");
@@ -65,5 +66,9 @@ public class ProductService {
 		}
 
 		return totalWeight;
+	}
+
+	public List<Product> searchProductsByBarcode(String barcode) {
+		return productRepository.findByBarcode(barcode);
 	}
 }
