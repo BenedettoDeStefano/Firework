@@ -51,4 +51,19 @@ public class ProductService {
 	public void deleteProduct(UUID id) {
 		productRepository.deleteById(id);
 	}
+
+	public List<Product> searchProductsByName(String nameProduct) {
+		return productRepository.findByNameProductContainingIgnoreCase(nameProduct);
+	}
+
+	public double calculateTotalWeight() {
+		List<Product> products = productRepository.findAll();
+		double totalWeight = 0.0;
+
+		for (Product product : products) {
+			totalWeight += product.getTotalWeight();
+		}
+
+		return totalWeight;
+	}
 }
